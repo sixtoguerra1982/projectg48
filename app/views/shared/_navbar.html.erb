@@ -1,0 +1,10 @@
+<nav class="mt-3 d-flex justify-content-center align-items-center">
+  <%= link_to "Home" , root_path, class: "btn btn-success" %>|
+  <%= link_to "Cerrar Sesion",destroy_user_session_path, method: :delete, class: "btn btn-warning" if user_signed_in? %>
+  <%= link_to "Iniciar Sesion",new_user_session_path, class: "btn btn-warning" if !user_signed_in? %>
+  <div class="ml-5">
+    <% if signed_in? %>
+      <span class="badge badge-info"><%= "#{current_user.email} -> #{current_user.role}" %></span>
+    <% end %>
+  </div>
+</nav>
